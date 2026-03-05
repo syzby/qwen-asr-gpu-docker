@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  qwen-asr:
+    build: .
+    image: qwen-asr-gpu:latest
+    container_name: qwen-asr-gpu
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - USE_GPU=true
+      - MODEL_NAME=paraformer-zh
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./audio:/app/audio
+      - ./models:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
