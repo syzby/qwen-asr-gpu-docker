@@ -1,0 +1,13 @@
+# Qwen ASR (Paraformer) 依赖
+funasr>=1.0.0
+torchaudio
+torch>=2.0.0
+numpy>=1.21.0
+scipy
+soundfile>=0.12.0
+librosa
+flask>=2.0.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+python-multipart
